@@ -20,6 +20,9 @@ from CarMarket_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',views.home),
-    path('add/', views.add)
-
+    path('add/', views.add),
+    path('contact/', views.contact),
+    path('details/',views.detailes),
+    path('login/',views.login)
+    path('market/',views.market)
 ]
