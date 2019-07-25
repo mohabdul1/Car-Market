@@ -23,6 +23,6 @@ urlpatterns = [
     path('add/', views.add),
     path('contact/', views.contact),
     path('details/',views.detailes),
-    path('login/',views.login)
+    path('login/',views.login),
     path('market/',views.market)
 ]
