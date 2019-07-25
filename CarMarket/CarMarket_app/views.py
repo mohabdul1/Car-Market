@@ -7,4 +7,23 @@ def home(request):
 
 def add(request):
     return render(request, 'add.html')
-# 
+
+
+def contact(request):
+    return render(request,'contact.html')
+
+
+def detailes(request):
+    return render (request, 'details.html')
+
+
+def login(request):
+    return render(request,'login.html')
+
+
+def register(request):
+    return render(request, 'register.html')
+
+
+def market(request):
+    return render(request,'market.html')
