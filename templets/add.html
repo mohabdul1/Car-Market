@@ -6,12 +6,13 @@ Add Page
 
 {% block body %}
 <div class="container">
-    <h1>Add CAr Page</h1>
-
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Add Car" class="btn">
-    </form>
+    <div id="add">
+        <h1>Add Car</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Add Car" class="btn">
+        </form>
+    </div>
 </div>
 {% endblock %}
