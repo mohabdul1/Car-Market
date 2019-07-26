@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url("../images/webbackground.jpg");
+    background-size: cover;
+    overflow: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav {
+    color: wheat;
+    background-color: rgba(0, 39, 78, 0.8);
+    padding: 30px;
+    border: none;
+}
