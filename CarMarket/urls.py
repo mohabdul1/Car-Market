@@ -19,10 +19,10 @@ from CarMarket_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home',views.home),
-    path('add/', views.add),
-    path('contact/', views.contact ,),
-    path('details/',views.detailes),
-    path('login/',views.login),
-    path('market/',views.market)
+    path('',views.home, name ='home'),
+    path('add/', views.add, name = 'add'),
+    path('contact/', views.contact, name = 'contact'),
+    path('details/',views.detailes, name = 'details'),
+    path('login/',views.login, name = 'login'),
+    path('market/',views.market, name = 'market')
 ]
