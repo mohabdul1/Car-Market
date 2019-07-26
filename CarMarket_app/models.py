@@ -8,5 +8,5 @@ class Car(models.Model):
     picture = models.ImageField(upload_to='car_pics')
     about = models.TextField()
     car_model= models.IntegerField()
-    car_type = models.IntegerField()
+    car_type = models.CharField(max_length=75)
     car_price = models.IntegerField()
