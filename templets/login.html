@@ -5,4 +5,21 @@ Login Page
 {% endblock %}
 
 {% block body %}
+<div class="container">
+    <h1>Please fill the required information</h1>
+
+    {% if messages %}
+    <div class="msgs">
+        {% for i in messages %}
+        <p>{{i}}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{login.as_p}}
+        <input type="submit" value="Login" class="btn">
+    </form>
+</div>
 {% endblock %}
