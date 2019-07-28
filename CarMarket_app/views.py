@@ -39,7 +39,7 @@ def contact(request):
             send_email(name, email, body)
             form = ContactForm()
             messages.success(request, 'email is sent, we will contact you soon')
-            return HttpResponseRedirect(reverse('contact'))
+            return HttpResponseRedirect(reverse('contact.html'))
     data = { 
         'form': form
     }
