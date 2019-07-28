@@ -9,7 +9,11 @@ class Car(models.Model):
     picture = models.ImageField(upload_to='car_pics')
     about = models.TextField()
     car_model= models.CharField(max_length=4)
-    car_type = models.CharField(max_length=75, default=True)
+    car_type = (
+        ('A', 'Auto'),
+        ('M', 'Manual')
+    )
+    car_type=models.CharField(max_length=1, choices=car_type)
     car_price = models.CharField(max_length=10)
 
 class Profile(models.Model):
