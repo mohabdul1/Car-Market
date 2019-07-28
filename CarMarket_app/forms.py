@@ -1,5 +1,6 @@
 from django import forms
-from .models import Car
+from .models import Car ,Profile
+from django.contrib.auth.models import User
 
 class CarForm(forms.ModelForm):
     picture = forms.ImageField(required=False)
@@ -14,7 +15,7 @@ class CarForm(forms.ModelForm):
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=50, label='Full Name')
     email = forms.EmailField(required=True)
-    body = forms.CharField(widget=forms.Textarea, help_text='write your message here')
+    body = forms.CharField(widget=forms.Textarea)
 
     def clean_name(self):
         name = self.cleaned_data['name']
@@ -22,3 +23,21 @@ class ContactForm(forms.Form):
             raise forms.ValidationError('ommm, sorry you cann\' send us message')
 
         return name
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=100)
+    password = forms.CharField(widget=forms.PasswordInput)    
+
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['mobile', 'gender']
