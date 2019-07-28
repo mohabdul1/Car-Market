@@ -17,11 +17,11 @@
     </div>
     {% endif %}
 
-    {% for i in Cars%}
+    {% for i in Cars %}
     <div class="box">
-        <p><a href="{{i.get_absolute_url}}">{{i.ad_description}}</a> / {{i.mamsha}}</p>
-        <p>{{i.mamsha}} on {{i.publish_on |date:"D d M Y"}}</p><p>i.car_model</p>
-        <p>i.car_type</p><p>i.car_price</p>
+        <p><a href="{{i.get_absolute_url}}">{{i.ad_description}}</a>{{i.mamsha}}</p>
+        <p>{{i.publish_on |date:"D d M Y"}}</p><p>{{i.car_model}}</p>
+        <p>{{i.car_type}}</p><p>{{i.car_price}}</p><img src="{{i.picture}}" alt="car image">
     </div>
     {% empty %}
     <p>No Cars is found</p>
