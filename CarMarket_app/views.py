@@ -14,12 +14,12 @@ def add(request):
     if request.method == 'POST':
         form = CarForm(request.POST)
         if form.is_valid():
-            Car = form.save(commit=False)
+            Car = form.save(commit=True)
             if 'picture' in request.FILES:
                 Car.picture = request.FILES['picture']
             Car.save()            
             messages.success(request, 'your book have been added succesfully')
-            return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(reverse('add/'))
 
     data = {
         'form': form
