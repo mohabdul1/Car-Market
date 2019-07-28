@@ -5,6 +5,7 @@ from .models import Car
 from django.contrib import messages
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request,'home.html')
@@ -20,7 +21,7 @@ def add(request):
                 Car.picture = request.FILES['picture']
             Car.save()            
             messages.success(request, 'your book have been added succesfully')
-            return HttpResponseRedirect(reverse('add'))
+            return HttpResponseRedirect(reverse('market'))
 
     data = {
         'form': form
@@ -52,6 +53,11 @@ def send_email(name, email, body):
 def detailes(request):
     return render (request, 'details.html')
 
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home'))
+
 
 def user_login(request):
     form = LoginForm()
@@ -72,8 +78,8 @@ def user_login(request):
                 messages.error(request, 'invalid username of password')
     
     data = {
-        'login': form}
-    return render(request, 'login.html', data)
+        'form': form}
+    return render(request,'login.html', data)
 
 
 def register(request):
@@ -104,4 +110,4 @@ def market(request):
     data = {
         'Cars': Cars
      }
-    return render(request,'market.html')
+    return render(request,'market.html', data)
