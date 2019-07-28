@@ -23,7 +23,8 @@ urlpatterns = [
     path('add/', views.add, name = 'add'),
     path('contact/', views.contact, name = 'contact'),
     path('details/',views.detailes, name = 'details'),
-    path('login/',views.login, name = 'login'),
+    path('login/',views.user_login, name = 'login'),
     path('market/',views.market, name = 'market'),
-    path('register/',views.register, name = 'register')
+    path('register/',views.register, name = 'register'),
+    path('logout/', views.user_logout, name='logout'),
 ]
