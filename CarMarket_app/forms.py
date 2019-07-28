@@ -14,7 +14,7 @@ class CarForm(forms.ModelForm):
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=50, label='Full Name')
     email = forms.EmailField(required=True)
-    body = forms.CharField(widget=forms.Textarea, help_text='write your message here')
+    body = forms.CharField(widget=forms.Textarea)
 
     def clean_name(self):
         name = self.cleaned_data['name']
