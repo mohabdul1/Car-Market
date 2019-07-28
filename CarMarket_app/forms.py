@@ -17,12 +17,6 @@ class ContactForm(forms.Form):
     email = forms.EmailField(required=True)
     body = forms.CharField(widget=forms.Textarea)
 
-    def clean_name(self):
-        name = self.cleaned_data['name']
-        if name == 'ahmed':
-            raise forms.ValidationError('ommm, sorry you cann\' send us message')
-
-        return name
 
 
 class LoginForm(forms.Form):
