@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse , HttpResponseRedirect
-from .forms import CarForm , ContactForm
+from .forms import CarForm , ContactForm , LoginForm , UserForm, ProfileForm
 from .models import Car
 from django.contrib import messages
 from django.urls import reverse
+from django.contrib.auth import authenticate, login, logout
 
 def home(request):
     return render(request,'home.html')
@@ -19,7 +20,7 @@ def add(request):
                 Car.picture = request.FILES['picture']
             Car.save()            
             messages.success(request, 'your book have been added succesfully')
-            return HttpResponseRedirect(reverse('add/'))
+            return HttpResponseRedirect(reverse('add'))
 
     data = {
         'form': form
@@ -39,7 +40,7 @@ def contact(request):
             send_email(name, email, body)
             form = ContactForm()
             messages.success(request, 'email is sent, we will contact you soon')
-            return HttpResponseRedirect(reverse('contact.html'))
+            return HttpResponseRedirect(reverse('contact'))
     data = { 
         'form': form
     }
@@ -52,14 +53,55 @@ def detailes(request):
     return render (request, 'details.html')
 
 
-def login(request):
+def user_login(request):
+    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
 
-    return render(request,'login.html')
+            user = authenticate(username=username, password=password)
+            if user:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('home'))
+                else:
+                    messages.error(request, 'user is not active')
+            else:
+                messages.error(request, 'invalid username of password')
+    
+    data = {
+        'login': form}
+    return render(request, 'login.html', data)
 
 
 def register(request):
-    return render(request, 'register.html')
+    userForm = UserForm()
+    profileForm = ProfileForm()
+
+    if request.method == 'POST':
+        userForm = UserForm(request.POST)
+        profileForm = ProfileForm(request.POST)
+
+        if userForm.is_valid() and profileForm.is_valid():
+            user = userForm.save(commit=False)
+            user.set_password(user.password)
+            user.save()
+
+            profile = profileForm.save(commit=False)
+            profile.user = user
+            profile.save()
+            return HttpResponseRedirect(reverse('home'))
+
+    data = { 'userForm': userForm, 'profileForm': profileForm}
+    return render(request, 'register.html', data)
+
 
 
 def market(request):
+    Cars = Car.objects.all()
+    data = {
+        'Cars': Cars
+     }
     return render(request,'market.html')
