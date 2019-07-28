@@ -4,23 +4,23 @@
 contact Page
 {% endblock %}
 {% block body %}
-<div id="contact">
-    <div class="container">
-        <h1>Contact</h1>
-        
-        {% if messages %}
-        <div class="msgs">
-            {% for i in messages %}
-            <p>{{i}}</p>
-            {% endfor %}
-        </div>
-        {% endif %}
 
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Send Now" class="btn">
-        </form>
+<div class="container bodydesign">
+    <h1>Contact</h1>
+
+    {% if messages %}
+    <div class="msgs">
+        {% for i in messages %}
+        <p>{{i}}</p>
+        {% endfor %}
     </div>
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Send Now" class="btn">
+    </form>
 </div>
+
 {% endblock %}
