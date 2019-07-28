@@ -81,14 +81,14 @@ a {
 #add h1 ,#add form {
     text-align: center;
 }
-#add {
+#add , #contact {
     background-color: rgba(255, 255, 255, 0.8);
     height: auto;
     width: 40%;
     margin: 20px auto;
     padding: 10px;
 }
-#add input , #add textarea{
+input , textarea{
     display: block;
     width: 100%;
     padding: 5px;
