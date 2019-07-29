@@ -20,7 +20,7 @@
     <div class="box">
         <br>
         <img src="{{i.picture}}" alt="car image">
-        <p><a id="discription" href="{{i.get_absolute_url}}">{{i.ad_description}}</a></p>
+        <p><a id="discription" href="{% url 'details' i.pk%}">{{i.ad_description}}</a></p>
         <p>{{i.mamsha}}</p>
         <p>{{i.publish_on |date:"D d M Y"}}</p><p>{{i.car_model}}</p>
         <p>{{i.car_type}}</p><p>{{i.car_price}}</p><br>
