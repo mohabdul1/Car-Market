@@ -18,6 +18,9 @@ class Car(models.Model):
     car_price = models.CharField(max_length=10)
     def get_absolute_url(self):
         return reverse('detailes', args=[str(self.id)])
+    
+    def __str__(self):
+        return self.ad_description
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
