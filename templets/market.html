@@ -20,12 +20,17 @@ Home Page
 
         <div class="box">
             <br>
-            <img src="{{i.picture}}" alt="car image">
-            <span id="adress">
-                <p><a id="discription" href="{{i.get_absolute_url}}">{{i.ad_description}}</a></p>
+            <div class="imgfloat">
+                <img src="{{i.picture.url}}" alt="car image" width="150" height="150">
+            </div>
+            <span>
+                <p><a id="discription" href="{{i.get_absolute_url}}">{{i.description}}</a></p>
             </span>
-            <p>Mileage : {{i.mamsha}}</p>
+            <br>
+            <p>Mileage : {{i.mileage}}</p>
+            <br>
             <p>Car Model : {{i.car_model}}</p>
+            <br>
             <p>Price {{i.car_price}}</p><br>
         </div>
         {% empty %}
