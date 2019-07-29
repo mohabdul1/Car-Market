@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Car
+{% endblock %}
+
+{% block body %}
+<div class="container bodydesign">
+    <h1>My Cars</h1>
+
+    {% if messages %}
+    <div class="msgs">
+        {% for i in messages %}
+        <p>{{i}}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="containerr">
+        {% for i in Cars %}
+
+        <div class="box">
+            <br>
+            <div class="imgfloat">
+                <img src="{{i.picture.url}}" alt="car image" width="150" height="150">
+            </div>
+            <span>
+                <p><a id="discription" href="{{i.get_absolute_url}}">{{i.description}}</a></p>
+            </span>
+            <br>
+            <p>Mileage : {{i.mileage}}</p>
+            <br>
+            <p>Car Model : {{i.car_model}}</p>
+            <br>
+            <p>Price : {{i.car_price}}</p><br>
+        </div>
+        {% empty %}
+        <p>No Cars is found</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
