@@ -5,12 +5,19 @@ Detailes Page
 {% endblock %}
 
 {% block body %}
-<div class="container">
-        <h1>Car Details</h1>
-        <p>Name: {{car.mamsha}}</p>
-        <p>Cover: <img src="{{car.picture.url}}" alt="Cover Image" width="200px"></p>
-
+<div class="container bodydesign">
+    <h1>Car Details</h1>
+    <p>description: {{car.ad_description}}</p>
+    <p>Added date: {{car.publish_on}}</p>
+    <p>Mileage: {{car.mamsha}}</p>
+    <p>Cover: <img src="{{car.picture.url}}" alt="Cover Image" width="200px"></p>
+    <p>About car: {{car.about}}</p>
+    <p>Model: {{car.car_model}}</p>
+    <p>Type: {{car.car_type}}</p>
+    <p>Price: {{car.car_price}}</p>
+    <br>
     <a href="{% url 'update-car' car.id%}">Update Car Info</a>
+    <br>
     <a href="{% url 'delete-car' car.id%}">Delete Car Info</a>
 </div>
 
