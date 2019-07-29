@@ -18,7 +18,7 @@ class CarViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-data_joined')
+    queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
@@ -42,7 +42,8 @@ def add(request):
     if request.method == 'POST':
         form = CarForm(request.POST)
         if form.is_valid():
-            Car = form.save(commit=True)
+            Car = form.save(commit=False)
+            Car.user = request.user
             if 'picture' in request.FILES:
                 Car.picture = request.FILES['picture']
             Car.save()            

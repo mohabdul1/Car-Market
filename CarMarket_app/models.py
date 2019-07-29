@@ -17,6 +17,8 @@ class Car(models.Model):
     )
     car_type=models.CharField(max_length=1, choices=car_type)
     car_price = models.CharField(max_length=10)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
     def get_absolute_url(self):
         return reverse('detailes', args=[str(self.id)])
     
