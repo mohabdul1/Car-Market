@@ -13,7 +13,7 @@ def home(request):
 class CarUpdate(UpdateView):
     model = Car
     fields = '__all__'
-    template_name = 'car_update.html'
+    template_name = 'add.html'
 
 class CarDelete(DeleteView):
     model = Car
