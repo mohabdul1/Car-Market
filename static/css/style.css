@@ -172,3 +172,9 @@ input , textarea{
 #floatleft {
     float: left;
 }
+.dashed{
+    border: rgb(0, 39, 78, 0.7) 2px dashed;
+    border-radius: 15px;
+    padding: 20px;
+    overflow: hidden;
+}
