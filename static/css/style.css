@@ -138,6 +138,7 @@ input , textarea{
 .imgfloat img {
     margin: none;
     border-radius: 10px;
+    margin-bottom: none;
 }
 .block {
     display: inline-block;
