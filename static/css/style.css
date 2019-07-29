@@ -64,7 +64,7 @@ a {
     text-decoration: none;
     color: crimson;
 }
-#rightnav a:hover {
+#rightnav, a:hover {
     color: white;
 }
 #rightnav span:hover {
