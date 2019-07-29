@@ -136,7 +136,7 @@ input , textarea{
     overflow: auto;
 }
 .imgfloat img {
-    padding: none;
+    margin: none;
     border-radius: 10px;
 }
 .block {
