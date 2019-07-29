@@ -5,7 +5,7 @@ Home Page
 {% endblock %}
 
 {% block body %}
-<div class="container bodydesignn" id="market">
+<div class="container bodydesign" id="market">
     <h1>Market</h1>
 
     {% if messages %}
@@ -31,7 +31,7 @@ Home Page
             <br>
             <p>Car Model : {{i.car_model}}</p>
             <br>
-            <p>Price {{i.car_price}}</p><br>
+            <p>Price : {{i.car_price}}</p><br>
         </div>
         {% empty %}
         <p>No Cars is found</p>
