@@ -7,6 +7,23 @@ from django.urls import reverse ,reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView, DeleteView
+from rest_framework import viewsets
+from .serializers import CarSerializer , UserSerializer 
+from django.contrib.auth.models import User 
+
+
+class CarViewSet(viewsets.ModelViewSet):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+
+
 
 def home(request):
     return render(request,'home.html')
@@ -25,7 +42,8 @@ def add(request):
     if request.method == 'POST':
         form = CarForm(request.POST)
         if form.is_valid():
-            Car = form.save(commit=True)
+            Car = form.save(commit=False)
+            Car.user = request.user
             if 'picture' in request.FILES:
                 Car.picture = request.FILES['picture']
             Car.save()            

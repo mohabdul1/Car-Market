@@ -14,11 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include
 from CarMarket_app import views
-
+from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
+
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'Cars', views.CarViewSet)
 
 
 urlpatterns = [
@@ -33,4 +38,6 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('car/<int:pk>/update/', views.CarUpdate.as_view(), name='update-car'),
     path('car/<int:pk>/delete/', views.CarDelete.as_view(), name='delete-car'),
+    path('api/', include(router.urls))
+    
 ]   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
