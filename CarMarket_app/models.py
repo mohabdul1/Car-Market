@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.shortcuts import reverse
 
 class Car(models.Model):
     ad_description = models.CharField(max_length=75)
@@ -15,6 +16,8 @@ class Car(models.Model):
     )
     car_type=models.CharField(max_length=1, choices=car_type)
     car_price = models.CharField(max_length=10)
+    def get_absolute_url(self):
+        return reverse('detailes', args=[str(self.id)])
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
