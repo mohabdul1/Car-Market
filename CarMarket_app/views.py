@@ -1,15 +1,24 @@
-from django.shortcuts import render
-from django.http import HttpResponse , HttpResponseRedirect
+from django.shortcuts import render , get_object_or_404
+from django.http import HttpResponse , HttpResponseRedirect , Http404
 from .forms import CarForm , ContactForm , LoginForm , UserForm, ProfileForm
 from .models import Car
 from django.contrib import messages
-from django.urls import reverse
+from django.urls import reverse ,reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import UpdateView, DeleteView
 
 def home(request):
     return render(request,'home.html')
+class CarUpdate(UpdateView):
+    model = Car
+    fields = '__all__'
+    template_name = 'car_update.html'
 
+class CarDelete(DeleteView):
+    model = Car
+    success_url = reverse_lazy('home')
+    template_name = 'car_delete.html'
 
 def add(request):
     form = CarForm()
@@ -50,8 +59,14 @@ def contact(request):
 def send_email(name, email, body):
     print('sending email done')
 
-def detailes(request):
-    return render (request, 'details.html')
+def detailes(request, pk):
+    car = Car.objects.filter(pk=pk).first()
+    if car ==None:
+        raise Http404()
+    data = {
+        'car' : car
+    }
+    return render (request, 'detailes.html', data)
 
 @login_required
 def user_logout(request):
