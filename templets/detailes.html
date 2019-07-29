@@ -5,4 +5,13 @@ Detailes Page
 {% endblock %}
 
 {% block body %}
+<div class="container">
+        <h1>Car Details</h1>
+        <p>Name: {{car.mamsha}}</p>
+        <p>Cover: <img src="{{car.picture.url}}" alt="Cover Image" width="200px"></p>
+
+    <a href="{% url 'update-car' car.id%}">Update Car Info</a>
+    <a href="{% url 'delete-car' car.id%}">Delete Car Info</a>
+</div>
+
 {% endblock %}
