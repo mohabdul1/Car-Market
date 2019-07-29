@@ -107,6 +107,7 @@ media/
 *.pyc
 *.db
 *.pid
+db.sqlite3
 # django migrations 
 **/migrations/**
 !**/migrations
