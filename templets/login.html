@@ -5,7 +5,7 @@ Login Page
 {% endblock %}
 
 {% block body %}
-<div class="container bodydesign">
+<div class="container bodydesign2">
     <h1>Please fill the required information</h1>
 
     {% if messages %}
@@ -15,11 +15,15 @@ Login Page
         {% endfor %}
     </div>
     {% endif %}
-    
+
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Login" class="btn">
     </form>
+</div>
+<div class="clr"></div>
+<div class="container2">
+    <p>if you do not have account <a href="{% url 'register' %}">Register now</a></p>
 </div>
 {% endblock %}
