@@ -8,7 +8,7 @@ Detailes Page
 <div class="container bodydesignn">
     <h1>Car Details</h1>
     <div class="imgfloat">
-        <img src="{{car.picture.url}}" alt="Cover Image">
+        <img src="{{car.picture.url}}" alt="Cover Image" width="300" height="300">
     </div>
     <p>description: {{car.ad_description}}</p>
     <br>
@@ -24,9 +24,13 @@ Detailes Page
     <br>
     <p>Price: {{car.car_price}}</p>
     <br>
+    {% if user.is_authenticated %}
+    {% if car.user == request.user %}
     <a class="btn block" href="{% url 'update-car' car.id%}"><i class="fas fa-pen fa-3x"></i></a>
     <br>
     <a class="btn block" href="{% url 'delete-car' car.id%}"><i class="fas fa-trash fa-3x"></i></a>
+    {% endif %}
+    {% endif %}
 </div>
 
 {% endblock %}
