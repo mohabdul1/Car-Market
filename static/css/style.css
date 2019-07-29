@@ -39,7 +39,7 @@ li {
     float: left;
     margin-left: 50px;
 }
-#rightnav, .box img {
+#rightnav, .imgfloat {
     float: right;
 }
 footer {
@@ -91,8 +91,9 @@ a {
 .bodydesignn{
     background-color: rgba(255, 255, 255, 0.8);
     height: auto;
-    width: 70%;
+    width: 80%;
     margin: 80px auto;
+    padding: 15px;
 }
 input , textarea{
     display: block;
@@ -110,32 +111,38 @@ input , textarea{
     text-align: center;
 }
 .box {
-    padding: 5px;
+    padding: 15px;
     margin: 5px;
-    border: black 4px solid;
-    border-radius: 15px
+    border: rgb(0, 39, 78, 0.7) 8px solid;
+    border-radius: 15px;
+    overflow: hidden;
 }
 #discription:hover {
-    color: blue;
+    color: crimson;
 }
 #market h1{
     text-align: center
 }
-#adress{
-    margin: 0;
-    padding: 0;
-    color: #000;
-}
 .box a{
-    color: blue;
+    color: rgb(2, 51, 100);
     font-family: Arial, Helvetica, sans-serif;
-}
-.box #adress{
-    background: crimson
+    font-size: 24px;
 }
 .containerr {
     max-width: 1100px;
     margin: 80px auto;
     padding: 0 20px;
     overflow: auto;
+}
+.imgfloat {
+    height: auto;
+    padding: none;
+    border: 6px rgb(0, 39, 78, 0.7) solid;
+    border-radius: 15px;
+}
+.block {
+    display: inline-block;
+}
+.btn:hover {
+    color: crimson;
 }
