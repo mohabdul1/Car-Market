@@ -23,7 +23,7 @@ class Car(models.Model):
         return reverse('detailes', args=[str(self.id)])
     
     def __str__(self):
-        return self.ad_description
+        return self.description
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
