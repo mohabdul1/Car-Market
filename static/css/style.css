@@ -161,3 +161,8 @@ input , textarea{
     width: 50%;
     margin: 80px auto 0 auto;
     padding: 10px;
+}
+.add_error{
+    text-align: center;
+    
+}

@@ -6,6 +6,7 @@ Add Page
 
 {% block body %}
 <div class="container bodydesign">
+    {% if user.is_authenticated %}
     <div id="add">
         <h1>Add Car</h1>
         <form action="" method="POST" enctype="multipart/form-data">
@@ -14,5 +15,12 @@ Add Page
             <input type="submit" value="Add Car" class="btn">
         </form>
     </div>
+    {% else %}
+    <div class="add_error">
+        <p>icon place</p>
+        <p>Sorry you can't add untill <a href="{% url 'login' %}">Login</a></p>        
+    </div>
+    {% endif %}
 </div>
+
 {% endblock %}
