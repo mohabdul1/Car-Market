@@ -9,7 +9,7 @@ body {
     background-size: cover;
     overflow: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #F26419;
+    color: crimson;
 }
 nav {
     color: white;
@@ -48,7 +48,7 @@ footer {
     background-size: 100%;
     height: auto;
     text-align: center;
-    color: #F26419;
+    color: crimson;
     padding: 20px;
     position: fixed;
     bottom:0;
@@ -62,7 +62,7 @@ footer {
 }
 a {
     text-decoration: none;
-    color: #F26419;
+    color: crimson;
 }
 #rightnav a:hover {
     color: white;
@@ -117,9 +117,6 @@ input , textarea{
 #discription:hover {
     color: blue;
 }
-.box img {
-    background-color: yellow;
-}
 #market h1{
     text-align: center
 }
@@ -133,7 +130,7 @@ input , textarea{
     font-family: Arial, Helvetica, sans-serif;
 }
 .box #adress{
-    background: #F26419
+    background: crimson
 }
 .containerr {
     max-width: 1100px;
