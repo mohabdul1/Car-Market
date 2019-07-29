@@ -17,14 +17,20 @@ from django.contrib import admin
 from django.urls import path
 from CarMarket_app import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name ='home'),
     path('add/', views.add, name = 'add'),
     path('contact/', views.contact, name = 'contact'),
-    path('details/',views.detailes, name = 'details'),
+    path('details/<int:pk>',views.detailes, name = 'details'),
     path('login/',views.user_login, name = 'login'),
     path('market/',views.market, name = 'market'),
     path('register/',views.register, name = 'register'),
     path('logout/', views.user_logout, name='logout'),
-]
+    path('car/<int:pk>/update/', views.CarUpdate.as_view(), name='update-car'),
+    path('car/<int:pk>/delete/', views.CarDelete.as_view(), name='delete-car'),
+]   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
