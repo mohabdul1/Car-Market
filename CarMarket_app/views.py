@@ -7,6 +7,23 @@ from django.urls import reverse ,reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView, DeleteView
+from rest_framework import viewsets
+from .serializers import CarSerializer , UserSerializer 
+from django.contrib.auth.models import User 
+
+
+class CarViewSet(viewsets.ModelViewSet):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all().order_by('-data_joined')
+    serializer_class = UserSerializer
+
+
+
+
 
 def home(request):
     return render(request,'home.html')
