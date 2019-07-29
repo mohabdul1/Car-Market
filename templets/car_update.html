@@ -5,4 +5,12 @@ Book Update Page
 {% endblock %}
 
 {% block body %}
+<div class="container bodydesign">
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{Cars.as_p}}
+        <input type="submit" value="Submit" class="btn">
+    </form>
+</div>
 {% endblock %}
