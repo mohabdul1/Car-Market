@@ -17,7 +17,8 @@ Add Page
     </div>
     {% else %}
     <div class="add_error">
-        <p>icon place</p>
+        <p><i class="fas fa-lock fa-7x"></i></p>
+        <br>
         <p>Sorry you can't add untill <a href="{% url 'login' %}">Login</a></p>        
     </div>
     {% endif %}
