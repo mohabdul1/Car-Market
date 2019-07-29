@@ -6,7 +6,7 @@ class CarForm(forms.ModelForm):
     picture = forms.ImageField(required=False)
     class Meta:
         model = Car
-        fields = ['ad_description','car_model', 'mamsha', 'publish_on', 'picture', 'about','car_type','car_price']
+        fields = ['description','car_model', 'mileage', 'publish_on', 'picture', 'about','car_gear','car_price']
         widgets = {
             'publish_on': forms.DateTimeInput(attrs={'type': 'date'})
         }
