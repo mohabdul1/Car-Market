@@ -4,17 +4,17 @@ from django.contrib.auth.models import User
 from django.shortcuts import reverse
 
 class Car(models.Model):
-    ad_description = models.CharField(max_length=75)
-    mamsha = models.CharField(max_length=10)
+    description = models.CharField(max_length=75)
+    mileage = models.CharField(max_length=10)
     publish_on = models.DateTimeField(default=timezone.now)
     picture = models.ImageField(upload_to='car_pics')
     about = models.TextField()
     car_model= models.CharField(max_length=4)
-    car_type = (
-        ('A', 'Auto'),
-        ('M', 'Manual')
+    car_gear = (
+        ('Auto', 'Auto'),
+        ('Manual', 'Manual')
     )
-    car_type=models.CharField(max_length=1, choices=car_type)
+    car_gear=models.CharField(max_length=6, choices=car_gear, default='Auto' )
     car_price = models.CharField(max_length=10)
     def get_absolute_url(self):
         return reverse('detailes', args=[str(self.id)])

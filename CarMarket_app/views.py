@@ -29,7 +29,7 @@ def add(request):
             if 'picture' in request.FILES:
                 Car.picture = request.FILES['picture']
             Car.save()            
-            messages.success(request, 'your book have been added succesfully')
+            messages.success(request, 'your car have been added succesfully')
             return HttpResponseRedirect(reverse('market'))
 
     data = {
