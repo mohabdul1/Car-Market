@@ -7,24 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsivity.css' %}" media="screen and (max-width:800px)">
     <script src="https://kit.fontawesome.com/cd63979b30.js"></script>
     <title>CarMarket {% block title %} {% endblock %} </title>
 </head>
 
 <body>
     <nav>
-        <h1 id="leftnav"><a href="{% url 'home' %}">CarMarket</a></h1>
-        
+        <a href="{% url 'home' %}" id="leftnav">
+            <h1>CarMarket</h1>
+        </a>
+
         <ul id="rightnav">
+
             <li><a href="{% url 'home' %}"><i class="fas fa-home fa-2x"></i></a></li>
             <li><a href="{% url 'market' %}"><i class="fas fa-car fa-2x"></i></a></li>
             <li><a href="{% url 'add' %}"><i class="fas fa-cart-plus fa-2x"></i></a></li>
+
             {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                <li><a href="{% url 'mycar' %}">My Cars</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'mycar' %}">My Cars</a></li>
             {% else %}
-                <li><a href="{% url 'register' %}">Register</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
             <li><a href="{% url 'contact' %}"><span>contact</span></a></li>
         </ul>

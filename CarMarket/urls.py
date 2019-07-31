@@ -39,6 +39,6 @@ urlpatterns = [
     path('car/<int:pk>/update/', views.CarUpdate.as_view(), name='update-car'),
     path('car/<int:pk>/delete/', views.CarDelete.as_view(), name='delete-car'),
     path('mycar/', views.mycar, name='mycar'),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
     
 ]   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
