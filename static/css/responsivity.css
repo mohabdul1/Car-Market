@@ -41,3 +41,6 @@ footer {
 li {
     font-size: 14px;
 }
+.dashed {
+    padding-left: 2px;
+}
